@@ -18,13 +18,13 @@ tabs.forEach((tab, index) => {
   const pane = panes[index];
 
   tab.onclick = function () {
-    $(".tab-item.active").classList.remove("active");
+    $(".tab-item.active").classList.remove("active"); //Go bo active class
     $(".tab-pane.active").classList.remove("active");
 
     line.style.left = this.offsetLeft + "px";
     line.style.width = this.offsetWidth + "px";
 
-    this.classList.add("active");
+    this.classList.add("active"); //Them active vao khi click
     pane.classList.add("active");
   };
 });
