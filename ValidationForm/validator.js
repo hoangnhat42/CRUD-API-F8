@@ -23,17 +23,18 @@ function Validator(options) {
 
     //lặp qua từng rule và kiểm tra - nếu có lỗi thì dừng việc kiểm tra
     for (var i = 0; i < rules.length; ++i) {
-        switch(inputElement.type) {
-            case 'radio': 
+        switch (inputElement.type) {
+            case 'radio':
             case 'checkbox':
-                 errorMessage = rules[i](
+                errorMessage = rules[i](
                     formElement.querySelector(rule.selector + ':checked')
-                 );
-                 break;
-            default: errorMessage = rules[i](inputElement.value);
-
-        if(errorMessage) break;
+                );
+                break;
+            default: 
+                errorMessage = rules[i](inputElement.value);
     }
+
+    if(errorMessage) break;
     
 }
     if (errorMessage) {
@@ -61,7 +62,7 @@ function Validator(options) {
             var isValid = validate(inputElement, rule);
 
             if(!isValid) {
-                inFormValid = false;
+                isFormValid = false;
             }
 
         });
@@ -104,7 +105,7 @@ function Validator(options) {
 
             //Xử lý mỗi khi người dùng nhập input
             inputElement.oninput = function() {
-    var errorElement = getParent(inputElement, options.formGroupSelector).querySelector('.form-message');
+                var errorElement = getParent(inputElement, options.formGroupSelector).querySelector('.form-message');
                 errorElement.innerText = '';
                  getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
             }

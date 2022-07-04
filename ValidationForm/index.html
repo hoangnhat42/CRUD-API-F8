@@ -59,8 +59,8 @@
     errorSelector: '.form-message',
     rules: [
     Validator.isRequired('#fullname', 'Vui lòng nhập đầy đủ tên của bạn'),
+    Validator.isRequired('#email'),
     Validator.isEmail('#email'),
-
     Validator.minLength('#password', 6),
     Validator.isRequired('#password_confirmation'),
     Validator.isRequired('input[name="gender"]'),
